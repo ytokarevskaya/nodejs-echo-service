@@ -1,0 +1,15 @@
+{
+  "name": "echo-service",
+  "version": "1.0.0",
+  "description": "A simple echo service",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ytokarevskaya",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^8.2.2"
+  }
+}
