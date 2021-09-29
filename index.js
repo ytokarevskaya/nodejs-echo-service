@@ -1,15 +1,15 @@
 const ws = require('ws');
 
-const PORT = 3000
+const PORT = process.env.PORT || 3000;
 
-const server = new ws.Server({
-	port: PORT
-})
+const server = express()
+  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-server.on('connection', (socket) => {
+const wss = new ws.Server({ server });
+
+wss.on('connection', (socket) => {
 	socket.on('message', (message) => {
 		socket.send(`${message}`);
 	})
 })
-
-console.log('Server is listening on port: ' + PORT);
